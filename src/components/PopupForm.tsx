@@ -19,6 +19,14 @@ const PopupForm: React.FC<PopupFormProps> = ({ show, onClose }) => {
           ✖
         </button>
         <h2 className="text-2xl font-bold mb-4 text-center">Contact Form</h2>
+        <p>Do you want to show CO2 emission data in every product page?
+            We have created a special widget for you to do that. 
+            We can provide over 20 000 product CO2 data for your web store. All data is updated dynamically to you.
+            We have unique component based calculation method that provides really accurate CO2 emission data from all electronics. 
+            We have visualized CO2 values to make real life examples how much consumers can make a difference. Select visualization directly from our library
+            Widget is plug & play js. script component with high security level and authentication. Implementation time for you less that a day.
+             Leave your contact information to get free pilot access to new era of CO2 free shopping.
+        </p>
         <form className="space-y-4">
           <div>
             <label htmlFor="firstName" className="block text-sm font-medium text-gray-700">

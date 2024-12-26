@@ -15,19 +15,24 @@ const AmazonNav = () => {
         </div>
 
         {/* Search Bar */}
-        <div className="flex w-full max-w-full md:max-w-2xl flex-grow mb-2 md:mb-0">
-          <select className="border border-gray-400 text-black p-2 text-sm md:text-base">
+        <div className="flex flex-wrap w-full max-w-full md:max-w-2xl items-center mb-2 md:mb-0 gap-2">
+          <select className="w-full md:w-auto border border-gray-400 text-black p-2 text-sm md:text-base rounded">
             <option>Cell Phones &amp; Accessories</option>
             <option>Electronics</option>
             <option>Books</option>
           </select>
-          <input
-            type="text"
-            placeholder="Search Eco360"
-            className="flex-grow p-2 outline-none text-black text-sm md:text-base"
-          />
-          <button className="bg-pink-600 px-2 md:px-4 py-2 text-sm md:text-base">🔍</button>
+          <div className="flex flex-grow w-full md:w-auto border border-gray-400 rounded overflow-hidden">
+            <input
+              type="text"
+              placeholder="Search Eco360"
+              className="flex-grow p-2 outline-none text-black text-sm md:text-base"
+            />
+            <button className="bg-pink-600 px-4 py-2 text-white text-sm md:text-base">
+              🔍
+            </button>
+          </div>
         </div>
+
 
         {/* Right: Options */}
         <div className="flex items-center gap-4 md:gap-6 text-xs md:text-base">
