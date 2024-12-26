@@ -10,6 +10,10 @@ import Cart from "@/components/Cart";
 import PopupForm from "@/components/PopupForm";
 import { useState } from "react";
 
+interface icon {
+  src: string; // Image URL
+  label: string; // Descriptive label
+}
 interface Product {
   title: string;
   image: string;
@@ -24,7 +28,7 @@ interface Product {
   refreshRate: string;
   memoryOptions: MemoryOption[];
   memoryData: Partial<Record<MemoryOption, { co2e: number; liters: number; hours: number }>>;
-  icons:icon[];
+  icons: icon[];
 }
 type MemoryOption = "128GB" | "256GB" | "512GB" | "1TB" | "2TB" | "41mm" | "45mm";
 
