@@ -285,7 +285,7 @@ const ProductDetails = () => {
               ))}
             </div>
 
-            <div className="flex items-center mb-4">
+            {/*<div className="flex items-center mb-4">
               <div className="flex space-x-2">
                 {product.memoryOptions.map((memory) => (
                   <button
@@ -299,7 +299,23 @@ const ProductDetails = () => {
                   </button>
                 ))}
               </div>
+            </div>*/}
+            <div className="flex flex-wrap items-center mb-4">
+              <div className="flex flex-wrap justify-center gap-2 sm:gap-4">
+                {product.memoryOptions.map((memory) => (
+                  <button
+                    key={memory}
+                    className={`px-4 py-2 border rounded-lg ${
+                      selectedMemory === memory ? "bg-green-500 text-white" : ""
+                    }`}
+                    onClick={() => setSelectedMemory(memory)}
+                  >
+                    {memory}
+                  </button>
+                ))}
+              </div>
             </div>
+
 
             {/*<p className="text-gray-700 mb-4">{product.description}</p>*/}
             <p className="text-gray-600">{product.intro}</p>
