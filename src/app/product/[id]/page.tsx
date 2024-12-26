@@ -270,7 +270,7 @@ const ProductDetails = () => {
               <span className="ml-2 text-blue-400">3,325 ratings</span>
             </div>
 
-            <p className="text-green-600 font-semibold mb-2">
+            <p className="text-gray-600 font-semibold mb-2">
               This item cannot be shipped to your selected delivery location. Please choose a different delivery location.
             </p>
 
