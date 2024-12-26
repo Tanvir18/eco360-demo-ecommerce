@@ -28,14 +28,14 @@ export default function Home() {
     },
     {
       id: 4,
-      title: "Apple Watch Series 8 (GPS, 45mm) Midnight Aluminum Case with Midnight Sport Band (Renewed Premium)",
+      title: "Apple Watch Series 8 (GPS, 45mm)(Renewed Premium)",
       price: "€199.72",
       delivery: "Fri, Dec 27",
       image: "/img/apple_watch_se_gps_midnight_aluminum_midnight_sport_band_pdp_image_2023_position-1__en-me.jpg",
     },
     {
       id: 5,
-      title: "iPad 12.9-inch iPad Pro Wi-Fi+Cellular 128GB - Space Gray (5th Generation)",
+      title: "iPad 12.9-inch iPad Pro Wi-Fi+Cellular 128GB",
       price: "€1039.00",
       delivery: "Fri, Dec 27",
       image: "/img/2469-11447.jpg",
