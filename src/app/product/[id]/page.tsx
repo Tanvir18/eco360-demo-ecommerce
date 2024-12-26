@@ -22,7 +22,7 @@ interface Product {
   resolution: string;
   refreshRate: string;
   memoryOptions: MemoryOption[];
-  memoryData: Record<MemoryOption, { co2e: number; liters: number; hours: number }>;
+  memoryData: Partial<Record<MemoryOption, { co2e: number; liters: number; hours: number }>>;
 }
 type MemoryOption = "128GB" | "256GB" | "512GB";
 
@@ -145,7 +145,9 @@ const ProductDetails = () => {
     );
   }
 
-  const selectedData = product.memoryData[selectedMemory];
+  //const selectedData = product.memoryData[selectedMemory];
+  const selectedData = product.memoryData[selectedMemory] || { co2e: 0, liters: 0, hours: 0 };
+
 
   return (
     <div className="flex flex-col min-h-screen">
