@@ -15,6 +15,7 @@ interface Product {
   image: string;
   price: string;
   colors: string[];
+  intro: string;
   description: string;
   brand: string;
   os: string;
@@ -23,8 +24,9 @@ interface Product {
   refreshRate: string;
   memoryOptions: MemoryOption[];
   memoryData: Partial<Record<MemoryOption, { co2e: number; liters: number; hours: number }>>;
+  icons:icon[];
 }
-type MemoryOption = "128GB" | "256GB" | "512GB";
+type MemoryOption = "128GB" | "256GB" | "512GB" | "1TB" | "2TB" | "41mm" | "45mm";
 
 const ProductDetails = () => {
   const [showForm, setShowForm] = useState(false);
@@ -35,9 +37,14 @@ const ProductDetails = () => {
     "1": {
       title: "Apple iPhone 15 Plus",
       image: "/img/iPhone-15-Plus-(4)-7443.jpg",
-      price: "€899.99",
+      price: "€999.00",
       colors: ["#000000", "#FF0000", "#00FF00"],
-      description: "The latest iPhone 15 Plus with exceptional performance and camera.",
+      intro: `This product is not Apple certified, but has been professionally inspected and tested by Eco360-qualified suppliers. The product may have minimal scratches or dents, and a battery with at least 80% capacity. Box may be generic and accessories may not be original, but will be compatible and fully functional. This product is eligible for a replacement or refund within 90 days of receipt if you are not satisfied.`,
+      description: `6.7inch Super Retina XDR display. Aluminum with color-infused glass back. Ring/Silent switch
+        Dynamic Island. A magical way to interact with iPhone. A16 Bionic chip with 5-core GPU
+        Advanced dual-camera system. 48MP Main | Ultra Wide. Super-high-resolution photos (24MP and 48MP). Next-generation portraits with Focus and Depth Control. 4X optical zoom range
+        Emergency SOS via satellite. Crash Detection. Roadside Assistance via satellite
+        Up to 26 hours video playback. USB C, Supports USB 2. Face ID`,
       brand: "Apple",
       os: "iOS 17",
       screenSize: "6.7 inches",
@@ -45,16 +52,21 @@ const ProductDetails = () => {
       refreshRate: "120 Hz",
       memoryOptions: ["128GB", "256GB", "512GB"],
       memoryData: {
-        "128GB": { co2e: 38, liters: 22, hours: 45 },
-        "256GB": { co2e: 33, liters: 25, hours: 35 },
-        "512GB": { co2e: 20, liters: 10, hours: 30 },
+        "128GB": { co2e: 61,  hours: 76.25, liters: 331.50},
+        "256GB": { co2e: 68,  hours: 85, liters: 369.63 },
+        "512GB": { co2e: 82,  hours: 102.5, liters: 445.65 },
       },
+      icons: [
+        { src: "/img/oven.png", label: "Hours" },
+        { src: "/img/car.png", label: "Km" },
+      ],
     },
     "2": {
       title: "Apple iPhone 14 Blue",
       image: "/img/iPhone-14-Blue-7810.jpg",
       price: "€575.70",
       colors: ["#0000FF", "#000000"],
+      intro: `This product is not Apple certified, but has been professionally inspected and tested by Eco360-qualified suppliers. The product may have minimal scratches or dents, and a battery with at least 80% capacity. Box may be generic and accessories may not be original, but will be compatible and fully functional. This product is eligible for a replacement or refund within 90 days of receipt if you are not satisfied.`,
       description: `This phone is unlocked and compatible with any carrier of choice on GSM and CDMA networks (e.g. AT&T, T-Mobile, Sprint, Verizon, US Cellular, Cricket, Metro, Tracfone, Mint Mobile, etc.).
                     Please check with your carrier to verify compatibility.
                     When you receive the phone, insert a SIM card from a compatible carrier. Then, turn it on, connect to Wi-Fi, and follow the on screen prompts to activate service.
@@ -67,17 +79,26 @@ const ProductDetails = () => {
       refreshRate: "60 Hz",
       memoryOptions: ["128GB", "256GB", "512GB"],
       memoryData: {
-        "128GB": { co2e: 61, liters: 24, hours: 50 },
-        "256GB": { co2e: 67, liters: 20, hours: 40 },
-        "512GB": { co2e: 83, liters: 20, hours: 40 },
+        "128GB": { co2e: 61, hours: 76.25, liters: 331.50 },
+        "256GB": { co2e: 67, hours: 83.75, liters: 364.20 },
+        "512GB": { co2e: 83, hours: 103.75, liters: 451.2 },
       },
+      icons: [
+        { src: "/img/oven.png", label: "Hours" },
+        { src: "/img/car.png", label: "Km" },
+      ],
     },
     "3": {
       title: "Apple iPhone 13 Green",
       image: "/img/iPhone-13-Green-1718.jpg",
-      price: "$699.99",
+      price: "€499.00",
       colors: ["#00FF00", "#000000"],
-      description: "Green iPhone 13, a stylish and powerful device.",
+      intro: `This product is not Apple certified, but has been professionally inspected and tested by Eco360-qualified suppliers. The product may have minimal scratches or dents, and a battery with at least 80% capacity. Box may be generic and accessories may not be original, but will be compatible and fully functional. This product is eligible for a replacement or refund within 90 days of receipt if you are not satisfied.`,
+      description: `6.7inch Super Retina XDR display. Aluminum with color-infused glass back. Ring/Silent switch
+        A16 Bionic chip with 5-core GPU
+        Advanced dual-camera system. 48MP Main | Ultra Wide. Super-high-resolution photos (24MP and 48MP). Next-generation portraits with Focus and Depth Control. 4X optical zoom range
+        Emergency SOS via satellite. Crash Detection. Roadside Assistance via satellite
+        Up to 26 hours video playback. USB C, Supports USB 2. Face ID`,
       brand: "Apple",
       os: "iOS 15",
       screenSize: "6.1 inches",
@@ -85,45 +106,75 @@ const ProductDetails = () => {
       refreshRate: "60 Hz",
       memoryOptions: ["128GB", "256GB", "512GB"],
       memoryData: {
-        "128GB": { co2e: 38, liters: 22, hours: 45 },
-        "256GB": { co2e: 33, liters: 25, hours: 35 },
-        "512GB": { co2e: 20, liters: 10, hours: 30 },
+        "128GB": { co2e: 64, hours: 80, liters: 347.88 },
+        "256GB": { co2e: 71, hours: 88.75, liters: 385.88 },
+        "512GB": { co2e: 83, hours: 103.75, liters: 451.13 },
       },
+      icons: [
+        { src: "/img/oven.png", label: "Hours" },
+        { src: "/img/car.png", label: "Km" },
+      ],
     },
     "4": {
-      title: "Apple Watch SE GPS Midnight",
+      title: "Apple Watch Series 8 (GPS, 45mm) Midnight Aluminum Case with Midnight Sport Band (Renewed Premium)",
       image: "/img/apple_watch_se_gps_midnight_aluminum_midnight_sport_band_pdp_image_2023_position-1__en-me.jpg",
-      price: "$249.99",
+      price: "€199.72",
       colors: ["#000000"],
-      description: "Apple Watch SE with GPS functionality and stylish Midnight finish.",
+      intro: `Renewed Premium products are shipped and sold by Eco360 and have been certified to work and look like new. They have an increased battery life (min 90% battery capacity) and come with an Eco360-branded box and generic accessories which are in brand new condition. Renewed Premium products are not Apple certified but come with a one-year full satisfaction guarantee.`,
+      description:
+        `WHY Apple WATCH SERIES 8 - Your essential companion for a healthy life is now even more powerful. Advanced sensors provide insights to help you better understand your health. Safety features can get you help when you need it. The bright, Always-On Retina display is easy to read, even when your wrist is down.
+        EASILY CUSTOMIZABLE - Available in a range of sizes and materials, with dozens of bands to choose from and watch faces with complications tailored to whatever you’re into.
+        INNOVATIVE SAFETY FEATURES - Crash Detection and Fall Detection can automatically connect you with emergency services in the event of a severe car crash or a hard fall. And Emergency SOS provides urgent assistance with the press of a button.
+        ADVANCED HEALTH FEATURES - Temperature sensing is a breakthrough feature that provides deep insights into women’s health. Keep an eye on your blood oxygen. Take an ECG anytime. Get notifications if you have an irregular rhythm. And see how much time you spent in REM, Core, or Deep sleep with Sleep Stages.
+        Requires iPhone 8 or later with iOS 16 or later.`,
       brand: "Apple",
       os: "WatchOS 9",
       screenSize: "1.78 inches",
       resolution: "448 x 368",
       refreshRate: "60 Hz",
-      memoryOptions: ["128GB", "256GB"],
+      memoryOptions: ["41mm", "45mm"],
       memoryData: {
-        "128GB": { co2e: 40, liters: 24, hours: 50 },
-        "256GB": { co2e: 35, liters: 20, hours: 40 },
+        "41mm": { co2e: 33, hours: 330, liters: 179.35 },
+        "45mm": { co2e: 33, hours: 330, liters: 179.35 },
       },
+      icons: [
+        { src: "/img/tv.png", label: "Hours" },
+        { src: "/img/car.png", label: "Km" },
+      ],
     },
     "5": {
-      title: "iPhone 15 Pro Screen Replacement",
+      title: "iPad 12.9-inch iPad Pro Wi-Fi+Cellular 128GB - Space Gray (5th Generation)",
       image: "/img/2469-11447.jpg",
-      price: "$179.99",
+      price: "€1039.00",
       colors: ["#FFFFFF"],
-      description: "Replacement screen for iPhone 15 Pro, professionally assembled.",
+      intro: `Renewed Premium products are shipped and sold by Eco360 and have been certified to work and look like new. They have an increased battery life (min 90% battery capacity) and come with an Eco360-branded box and generic accessories which are in brand new condition. Renewed Premium products are not Apple certified but come with a one-year full satisfaction guarantee.`,
+      description: `Apple M1 chip for next-level performance
+        Brilliant 12.9-inch Liquid Retina XDR display with ProMotion, True Tone, and P3 wide color
+        TrueDepth camera system featuring Ultra Wide camera with Center Stage
+        12MP Wide camera, 10MP Ultra Wide camera, and LiDAR Scanner for immersive AR
+        Stay connected with ultrafast Wi-Fi
+        Go further with all-day battery life
+        Thunderbolt port for connecting to fast external storage, displays, and docks
+        Face ID for secure authentication and Apple Pay
+        Four speaker audio and five studio-quality microphones
+        Support for Apple Pencil (2nd generation), Magic Keyboard, and Smart Keyboard Folio`,
       brand: "Apple",
       os: "N/A",
-      screenSize: "6.1 inches",
-      resolution: "N/A",
-      refreshRate: "N/A",
-      memoryOptions: ["128GB", "256GB", "512GB"],
+      screenSize: "12.9 inches",
+      resolution: "2732-by-2048-pixel resolution at 264 pixels per inch (ppi)",
+      refreshRate: "60hz",
+      memoryOptions: ["128GB", "256GB", "512GB", "1TB", "2TB"],
       memoryData: {
-        "128GB": { co2e: 38, liters: 22, hours: 45 },
-        "256GB": { co2e: 33, liters: 25, hours: 35 },
-        "512GB": { co2e: 20, liters: 10, hours: 30 },
+        "128GB": { co2e: 138, hours: 172.50, liters: 750 },
+        "256GB": { co2e: 166, hours: 207.50, liters: 902.13 },
+        "512GB": { co2e: 187, hours: 233.75, liters: 1016.25 },
+        "1TB":   { co2e: 228, hours: 285, liters: 1239.13 },
+        "2TB":   { co2e: 286, hours: 357.50, liters: 1554.38 },
       },
+      icons: [
+        { src: "/img/oven.png", label: "Hours" },
+        { src: "/img/car.png", label: "Km" },
+      ],
     }
   };
   
@@ -188,7 +239,7 @@ const ProductDetails = () => {
 
           {/* Column 2: Product Details */}
           <div>
-            <h1 className="text-3xl font-bold mb-2">{product.title}</h1>
+            <h1 className="text-3xl font-bold mb-2 text-black">{product.title}</h1>
             <div className="flex items-center mb-4">
               <p className="text-black text-lg font-bold">4.1</p>
               <div className="flex items-center text-yellow-500 mr-2">
@@ -220,7 +271,7 @@ const ProductDetails = () => {
             </p>
 
             <div className="flex items-center gap-2 mb-4">
-              <p className="font-semibold">Color:</p>
+              <p className="font-semibold text-black">Color:</p>
               {product.colors.map((color, index) => (
                 <span
                   key={index}
@@ -246,10 +297,13 @@ const ProductDetails = () => {
               </div>
             </div>
 
-            <p className="text-gray-700 mb-4">{product.description}</p>
+            {/*<p className="text-gray-700 mb-4">{product.description}</p>*/}
+            <p className="text-gray-600">{product.intro}</p>
+            
+            
 
             <div className="mt-4 border-t pt-4">
-              <h2 className="text-xl font-bold mb-2">Specifications</h2>
+              <h2 className="text-xl font-bold mb-2 text-black">Specifications</h2>
               <ul className="text-gray-600">
                 <li><strong>Brand:</strong> {product.brand}</li>
                 <li><strong>Operating System:</strong> {product.os}</li>
@@ -258,7 +312,16 @@ const ProductDetails = () => {
                 <li><strong>Refresh Rate:</strong> {product.refreshRate}</li>
               </ul>
             </div>
+            <div className="mt-4 border-t pt-4">
+              <h2 className="text-xl font-bold mb-2 text-black">About This Product</h2>
+                <ul className="list-disc list-inside text-gray-700">
+                  {product.description.split("\n").map((point, index) => (
+                    <li key={index}>{point.trim()}</li>
+                  ))}
+                </ul>
+            </div>
           </div>
+          
 
           {/* Column 3: Cart and Wizard */}
           <div className="flex flex-col">
@@ -268,6 +331,7 @@ const ProductDetails = () => {
                 onOpenForm={() => setShowForm(true)}
                 memory={selectedMemory}
                 data={selectedData}
+                icons={product.icons}
               />
             </div>
           </div>
