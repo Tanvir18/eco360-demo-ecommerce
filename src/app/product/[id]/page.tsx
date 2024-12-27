@@ -29,6 +29,8 @@ interface Product {
   memoryOptions: MemoryOption[];
   memoryData: Partial<Record<MemoryOption, { co2e: number; liters: number; hours: number }>>;
   icons: icon[];
+  categories: string;
+  conditions: string;
 }
 type MemoryOption = "128GB" | "256GB" | "512GB" | "1TB" | "2TB" | "41mm" | "45mm";
 
@@ -56,7 +58,7 @@ const ProductDetails = () => {
       refreshRate: "120 Hz",
       memoryOptions: ["128GB", "256GB", "512GB"],
       memoryData: {
-        "128GB": { co2e: 61,  hours: 76.25, liters: 331.50},
+        "128GB": { co2e: 61,  hours: 76, liters: 331.50},
         "256GB": { co2e: 68,  hours: 85, liters: 369.63 },
         "512GB": { co2e: 82,  hours: 102.5, liters: 445.65 },
       },
@@ -64,9 +66,11 @@ const ProductDetails = () => {
         { src: "/img/oven.png", label: "Hours" },
         { src: "/img/car.png", label: "Km" },
       ],
+      categories: "phone",
+      conditions: "new",
     },
     "2": {
-      title: "Apple iPhone 14 Blue",
+      title: "Apple iPhone 14 Blue (Renewed Premium)",
       image: "/img/iPhone-14-Blue-7810.jpg",
       price: "€575.70",
       colors: ["#0000FF", "#000000"],
@@ -83,14 +87,16 @@ const ProductDetails = () => {
       refreshRate: "60 Hz",
       memoryOptions: ["128GB", "256GB", "512GB"],
       memoryData: {
-        "128GB": { co2e: 61, hours: 76.25, liters: 331.50 },
-        "256GB": { co2e: 67, hours: 83.75, liters: 364.20 },
-        "512GB": { co2e: 83, hours: 103.75, liters: 451.2 },
+        "128GB": { co2e: 61, hours: 76, liters: 331.50 },
+        "256GB": { co2e: 67, hours: 83.75, liters: 364 },
+        "512GB": { co2e: 83, hours: 103.75, liters: 451 },
       },
       icons: [
         { src: "/img/oven.png", label: "Hours" },
         { src: "/img/car.png", label: "Km" },
       ],
+      categories: "phone",
+      conditions: "renew",
     },
     "3": {
       title: "Apple iPhone 13 Green",
@@ -112,12 +118,14 @@ const ProductDetails = () => {
       memoryData: {
         "128GB": { co2e: 64, hours: 80, liters: 347.88 },
         "256GB": { co2e: 71, hours: 88.75, liters: 385.88 },
-        "512GB": { co2e: 83, hours: 103.75, liters: 451.13 },
+        "512GB": { co2e: 83, hours: 103.75, liters: 451 },
       },
       icons: [
         { src: "/img/oven.png", label: "Hours" },
         { src: "/img/car.png", label: "Km" },
       ],
+      categories: "phone",
+      conditions: "new",
     },
     "4": {
       title: "Apple Watch Series 8 (GPS, 45mm) Midnight Aluminum Case with Midnight Sport Band (Renewed Premium)",
@@ -138,13 +146,15 @@ const ProductDetails = () => {
       refreshRate: "60 Hz",
       memoryOptions: ["41mm", "45mm"],
       memoryData: {
-        "41mm": { co2e: 33, hours: 330, liters: 179.35 },
-        "45mm": { co2e: 33, hours: 330, liters: 179.35 },
+        "41mm": { co2e: 33, hours: 330, liters: 179 },
+        "45mm": { co2e: 35, hours: 350, liters: 190 },
       },
       icons: [
         { src: "/img/tv.png", label: "Hours" },
         { src: "/img/car.png", label: "Km" },
       ],
+      categories: "watch",
+      conditions: "renew",
     },
     "5": {
       title: "iPad 12.9-inch iPad Pro Wi-Fi+Cellular 128GB - Space Gray (5th Generation)",
@@ -170,15 +180,17 @@ const ProductDetails = () => {
       memoryOptions: ["128GB", "256GB", "512GB", "1TB", "2TB"],
       memoryData: {
         "128GB": { co2e: 138, hours: 172.50, liters: 750 },
-        "256GB": { co2e: 166, hours: 207.50, liters: 902.13 },
-        "512GB": { co2e: 187, hours: 233.75, liters: 1016.25 },
-        "1TB":   { co2e: 228, hours: 285, liters: 1239.13 },
-        "2TB":   { co2e: 286, hours: 357.50, liters: 1554.38 },
+        "256GB": { co2e: 166, hours: 207.50, liters: 902 },
+        "512GB": { co2e: 187, hours: 233.75, liters: 1016 },
+        "1TB":   { co2e: 228, hours: 285, liters: 1239 },
+        "2TB":   { co2e: 286, hours: 357.50, liters: 1554 },
       },
       icons: [
         { src: "/img/oven.png", label: "Hours" },
         { src: "/img/car.png", label: "Km" },
       ],
+      categories: "tablet",
+      conditions: "new",
     }
   };
   
@@ -202,7 +214,25 @@ const ProductDetails = () => {
 
   //const selectedData = product.memoryData[selectedMemory];
   const selectedData = product.memoryData[selectedMemory] || { co2e: 0, liters: 0, hours: 0 };
+  //const pcategories = product.categories;
+  //const pconditions = product.conditions;
 
+  //test
+  /*
+  const [formState, setFormState] = useState({
+    show: false,
+    categories: "",
+    conditions: "",
+  });
+
+  const handleOpenForm = () => {
+    setFormState({
+      show: true,
+      categories: product.categories,
+      conditions: product.conditions,
+    });
+  };*/
+  //end test
 
   return (
     <div className="flex flex-col min-h-screen">
@@ -270,9 +300,11 @@ const ProductDetails = () => {
               <span className="ml-2 text-blue-400">3,325 ratings</span>
             </div>
 
+            {/*}
             <p className="text-gray-600 font-semibold mb-2">
               This item cannot be shipped to your selected delivery location. Please choose a different delivery location.
             </p>
+            */}
 
             <div className="flex items-center gap-2 mb-4">
               <p className="font-semibold text-black">Color:</p>

@@ -120,6 +120,7 @@ const PopupForm: React.FC<PopupFormProps> = ({ show, onClose }) => {
         {/* Popup Content */}
         <div className="overflow-y-auto flex-grow">
           <ul className="list-disc list-inside text-sm text-gray-600 mb-4">
+            {/*}
             <li>Do you want to show CO2 emission data on every product page?</li>
             <li>We have created a special widget for you to do that.</li>
             <li>We can provide over 20,000 product CO2 data for your web store. All data is updated dynamically for you.</li>
@@ -127,7 +128,8 @@ const PopupForm: React.FC<PopupFormProps> = ({ show, onClose }) => {
             <li>We have visualized CO2 values to make real-life examples of how much consumers can make a difference. Select visualization directly from our library.</li>
             <li>The widget is a plug & play JS script component with a high-security level and authentication.</li>
             <li>Implementation time for you is less than a day.</li>
-            <li>Leave your contact information to get free pilot access to the new era of CO2-free shopping.</li>
+            */}
+            Leave your contact information to get free pilot access to the new era of CO2-free shopping.
           </ul>
 
           {/* Form Section */}
@@ -171,7 +173,7 @@ const PopupForm: React.FC<PopupFormProps> = ({ show, onClose }) => {
               type="submit"
               className="w-full bg-green-500 text-white font-semibold py-2 rounded-lg hover:bg-green-600"
             >
-              Get Started
+              Leave access request
             </button>
             <p className="text-center font-bold text-black text-sm mt-2">
               No obligation, No credit card required

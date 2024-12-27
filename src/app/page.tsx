@@ -14,7 +14,7 @@ export default function Home() {
     },
     {
       id: 2,
-      title: "Apple iPhone 14 Blue",
+      title: "Apple iPhone 14 Blue (Renewed Premium)",
       price: "€575.70",
       delivery: "Fri, Dec 27",
       image: "/img/iPhone-14-Blue-7810.jpg",
