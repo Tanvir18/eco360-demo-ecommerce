@@ -30,7 +30,7 @@ interface Product {
   memoryData: Partial<Record<MemoryOption, { co2e: number; liters: number; hours: number }>>;
   icons: icon[];
   categories: string;
-  conditions: string;
+  conditions: boolean;
 }
 type MemoryOption = "128GB" | "256GB" | "512GB" | "1TB" | "2TB" | "41mm" | "45mm";
 
@@ -58,16 +58,16 @@ const ProductDetails = () => {
       refreshRate: "120 Hz",
       memoryOptions: ["128GB", "256GB", "512GB"],
       memoryData: {
-        "128GB": { co2e: 61,  hours: 76, liters: 331.50},
-        "256GB": { co2e: 68,  hours: 85, liters: 369.63 },
-        "512GB": { co2e: 82,  hours: 102.5, liters: 445.65 },
+        "128GB": { co2e: 61,  hours: 76, liters: 332},
+        "256GB": { co2e: 68,  hours: 85, liters: 370 },
+        "512GB": { co2e: 82,  hours: 103, liters: 446 },
       },
       icons: [
         { src: "/img/oven.png", label: "Hours" },
         { src: "/img/car.png", label: "Km" },
       ],
       categories: "phone",
-      conditions: "new",
+      conditions: false,
     },
     "2": {
       title: "Apple iPhone 14 Blue (Renewed Premium)",
@@ -87,16 +87,16 @@ const ProductDetails = () => {
       refreshRate: "60 Hz",
       memoryOptions: ["128GB", "256GB", "512GB"],
       memoryData: {
-        "128GB": { co2e: 61, hours: 76, liters: 331.50 },
-        "256GB": { co2e: 67, hours: 83.75, liters: 364 },
-        "512GB": { co2e: 83, hours: 103.75, liters: 451 },
+        "128GB": { co2e: 61, hours: 76, liters: 332 },
+        "256GB": { co2e: 67, hours: 84, liters: 364 },
+        "512GB": { co2e: 83, hours: 104, liters: 451 },
       },
       icons: [
         { src: "/img/oven.png", label: "Hours" },
         { src: "/img/car.png", label: "Km" },
       ],
       categories: "phone",
-      conditions: "renew",
+      conditions: true,
     },
     "3": {
       title: "Apple iPhone 13 Green",
@@ -116,16 +116,16 @@ const ProductDetails = () => {
       refreshRate: "60 Hz",
       memoryOptions: ["128GB", "256GB", "512GB"],
       memoryData: {
-        "128GB": { co2e: 64, hours: 80, liters: 347.88 },
-        "256GB": { co2e: 71, hours: 88.75, liters: 385.88 },
-        "512GB": { co2e: 83, hours: 103.75, liters: 451 },
+        "128GB": { co2e: 64, hours: 80, liters: 348 },
+        "256GB": { co2e: 71, hours: 89, liters: 386 },
+        "512GB": { co2e: 83, hours: 104, liters: 451 },
       },
       icons: [
         { src: "/img/oven.png", label: "Hours" },
         { src: "/img/car.png", label: "Km" },
       ],
       categories: "phone",
-      conditions: "new",
+      conditions: false,
     },
     "4": {
       title: "Apple Watch Series 8 (GPS, 45mm) Midnight Aluminum Case with Midnight Sport Band (Renewed Premium)",
@@ -154,7 +154,7 @@ const ProductDetails = () => {
         { src: "/img/car.png", label: "Km" },
       ],
       categories: "watch",
-      conditions: "renew",
+      conditions: true,
     },
     "5": {
       title: "iPad 12.9-inch iPad Pro Wi-Fi+Cellular 128GB - Space Gray (5th Generation)",
@@ -179,18 +179,18 @@ const ProductDetails = () => {
       refreshRate: "60hz",
       memoryOptions: ["128GB", "256GB", "512GB", "1TB", "2TB"],
       memoryData: {
-        "128GB": { co2e: 138, hours: 172.50, liters: 750 },
-        "256GB": { co2e: 166, hours: 207.50, liters: 902 },
-        "512GB": { co2e: 187, hours: 233.75, liters: 1016 },
+        "128GB": { co2e: 138, hours: 173, liters: 750 },
+        "256GB": { co2e: 166, hours: 208, liters: 902 },
+        "512GB": { co2e: 187, hours: 234, liters: 1016 },
         "1TB":   { co2e: 228, hours: 285, liters: 1239 },
-        "2TB":   { co2e: 286, hours: 357.50, liters: 1554 },
+        "2TB":   { co2e: 286, hours: 358, liters: 1554 },
       },
       icons: [
         { src: "/img/oven.png", label: "Hours" },
         { src: "/img/car.png", label: "Km" },
       ],
       categories: "tablet",
-      conditions: "new",
+      conditions: false,
     }
   };
   
@@ -384,6 +384,8 @@ const ProductDetails = () => {
                 memory={selectedMemory}
                 data={selectedData}
                 icons={product.icons}
+                categories={product.categories}
+                conditions= {product.conditions}
               />
             </div>
           </div>
