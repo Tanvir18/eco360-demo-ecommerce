@@ -110,9 +110,6 @@ const Wizard = ({ onOpenForm,  data, icons, conditions }: WizardProps) => {
         >
           Give EMAIL to receive CO₂ CREDITS
         </button>
-        <p className="text-sm text-gray-700 mt-4">
-          Status: <span className="font-bold">{status}</span>
-        </p>
       </div>
     </div>
   );
