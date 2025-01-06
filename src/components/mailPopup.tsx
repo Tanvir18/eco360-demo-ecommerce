@@ -30,10 +30,10 @@ const PopupForm: React.FC<PopupFormProps> = ({ show, onClose }) => {
 
     try {
       await emailjs.send(
-        "your_service_id", // Replace with your EmailJS Service ID
-        "your_template_id", // Replace with your EmailJS Template ID
+        "service_p4uf08n", // Replace with your EmailJS Service ID
+        "template_9wvfmpl", // Replace with your EmailJS Template ID
         templateParams,
-        "your_user_id" // Replace with your EmailJS User ID
+        "qCZl5gDxYUgKE_EDu" // Replace with your EmailJS User ID
       );
       setMessage("Email sent successfully!");
     } catch (error) {
