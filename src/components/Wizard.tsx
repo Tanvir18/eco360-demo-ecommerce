@@ -89,7 +89,7 @@ const Wizard = ({ onOpenForm,  data, icons, conditions }: WizardProps) => {
               <img
                 src={icon.src}
                 alt={`${icon.label} icon`}
-                className="w-8 h-8 mb-1"
+                className="w-25 h-25 mb-1"
               />
               <span className="text-red-500 font-bold text-sm">
                 {
