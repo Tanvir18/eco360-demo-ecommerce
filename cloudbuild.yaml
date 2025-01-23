@@ -1,13 +1,14 @@
 steps:
-  # Step 1: Install dependencies
-  - name: 'gcr.io/cloud-builders/npm'
-    args: ['install']
+  # Step 1: Use Node.js 18.18.0 image
+  - name: "node:18.18.0"
+    entrypoint: "bash"
+    args:
+      - "-c"
+      - |
+        npm install
+        npm run build
 
-  # Step 2: Build the Next.js app
-  - name: 'gcr.io/cloud-builders/npm'
-    args: ['run', 'build']
-
-  # Step 3: Deploy to App Engine
+  # Step 2: Deploy to App Engine
   - name: 'gcr.io/cloud-builders/gcloud'
     args: ['app', 'deploy', '--quiet']
 
