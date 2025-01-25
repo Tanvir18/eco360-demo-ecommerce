@@ -1,13 +1,16 @@
 runtime: nodejs18
+env: standard
 instance_class: F2
 entrypoint: npm start
-env: standard
 
 handlers:
-  # Serve static assets like images, CSS, and JavaScript
+  # Serve static assets (e.g., CSS, JS, and images)
+  - url: /_next/static
+    static_dir: .next/static
+
   - url: /static
     static_dir: static
 
-  # Redirect all other requests to the app's main entry point
+  # Serve all other requests through the Next.js server
   - url: /.*
     script: auto
