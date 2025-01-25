@@ -1,6 +1,5 @@
 runtime: nodejs18
 env: standard
-region: europe-central2
 instance_class: F4
 entrypoint: npm run start
 
